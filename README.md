@@ -1,11 +1,8 @@
-[![Qworum's Netlify Build Plugin](Qworum-plus-Netlify.svg)](https://app.netlify.com/plugins/@qworum/netlify-plugin-qworum/install)
+![Qworum logo and name](https://raw.githubusercontent.com/doga/qworum-website/master/build/assets/images/logos/Qworum-logo-and-name.svg "Qworum logo and name")
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9fd88c5c-345b-4c4b-8d05-a855c43e3bf2/deploy-status)](https://app.netlify.com/sites/qworum-template/deploys)
+# Basic template for Qworum-based web applications
 
-This is a template for a multi-language website that:
-
-- uses [Qworum](https://qworum.net)'s advanced web browser capabilities, and
-- is deployed to [Netlify](https://www.netlify.com).
+This is a template for a multi-language website that uses [Qworum](https://qworum.net)'s advanced web browser capabilities.
 
 ## The "Hello World" Qworum application
 
