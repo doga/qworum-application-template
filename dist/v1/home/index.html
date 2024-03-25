@@ -15,7 +15,7 @@
 		// Redirect the user to his preferred language. 
 		// Browser behaviour: https://gist.github.com/ksol/62b489572944ca70b4ba 
 
-		fetch('/languages.json')
+		fetch('/settings.json')
 			.then((response) => response.json())
 			.then((siteLanguages) => {
 				// const siteLanguages = [];
