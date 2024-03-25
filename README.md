@@ -4,6 +4,11 @@
 
 This is a template for a multi-language website that uses [Qworum](https://qworum.net)'s advanced web browser capabilities.
 
+This template is:
+
+- _Multi-language_, with language-independent API endpoint paths.
+- _Versioned_. Indeed, Qworum applications are structured as Qworum APIs, and versioned APIs ensure that other applications that depend on this one will not break after an update.
+
 ## The "Hello World" Qworum application
 
 This website implements a Qworum API that has 2 endpoints:

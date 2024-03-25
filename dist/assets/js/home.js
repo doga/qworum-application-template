@@ -1,41 +1,33 @@
-
-// The Qworum library.
-// Documentation: https://qworum.net/docs/qworum-for-web-pages/latest/
-import { Qworum } from './imports.mjs';
+import { items } from "./modules/items.mjs"; // Articles on sale
+import { Qworum } from './imports.mjs'; // The Qworum library.
 
 const
-  // Qworum Data value types
-  Json = Qworum.Json,
-  SemanticData = Qworum.SemanticData,
-  // Qworum instructions
-  Data = Qworum.Data,
-  Return = Qworum.Return,
-  Sequence = Qworum.Sequence,
-  Goto = Qworum.Goto,
-  Call = Qworum.Call,
-  Fault = Qworum.Fault,
-  Try = Qworum.Try,
-  // Qworum script
-  Script = Qworum.Script;
-
-console.debug(`[home] Qworum.version: ${Qworum.version}`);
-
-// Items to show
-import { items } from "./modules/items.mjs";
-
+// Qworum Data value types
+Json         = Qworum.Json,
+SemanticData = Qworum.SemanticData,
+// Qworum instructions
+Data     = Qworum.Data,
+Return   = Qworum.Return,
+Sequence = Qworum.Sequence,
+Goto     = Qworum.Goto,
+Call     = Qworum.Call,
+Fault    = Qworum.Fault,
+Try      = Qworum.Try,
+// Qworum script
+Script = Qworum.Script;
 
 showItems();
 
 function showItems() {
-  console.debug(`[home] showing ${items.length} items`);
+  // console.debug(`[home] showing ${items.length} items`);
   const contentArea = document.getElementById('items');
 
   for (let itemId = 0; itemId < items.length; itemId++) {
-    console.debug(`[home] showing item ${itemId}`);
+    // console.debug(`[home] showing item ${itemId}`);
     const
-      item = items[itemId],
-      li = document.createElement('li'),
-      button = document.createElement('button');
+    item   = items[itemId],
+    li     = document.createElement('li'),
+    button = document.createElement('button');
 
     button.className = 'item-title';
     button.innerText = item.title;
