@@ -2,29 +2,33 @@
 // Used by check-qworum-availability-LANG.html.
 
 // Use Qworum
-import { Qworum } from "https://esm.sh/gh/doga/qworum-for-web-pages@1.2.0/mod.mjs";
+import { Qworum } from './imports.mjs';
 
 const
-  // Qworum Data value types
-  Json = Qworum.Json,
-  SemanticData = Qworum.SemanticData,
-  // Qworum instructions
-  Data = Qworum.Data,
-  Return = Qworum.Return,
-  Sequence = Qworum.Sequence,
-  Goto = Qworum.Goto,
-  Call = Qworum.Call,
-  Fault = Qworum.Fault,
-  Try = Qworum.Try,
-  // Qworum script
-  Script = Qworum.Script;
+// Qworum Data value types
+Json         = Qworum.Json,
+SemanticData = Qworum.SemanticData,
+// Qworum instructions
+Data     = Qworum.Data,
+Return   = Qworum.Return,
+Sequence = Qworum.Sequence,
+Goto     = Qworum.Goto,
+Call     = Qworum.Call,
+Fault    = Qworum.Fault,
+Try      = Qworum.Try,
+// Qworum script
+Script = Qworum.Script,
 
-console.log(`[Qworum availability checker] Qworum.version: ${Qworum.version}`);
+siteVersion = new URLSearchParams(document.location.search).get('version');
+
+console.log(`[Qworum availability checker] Site version: ${siteVersion}`);
+// console.log(`[Qworum availability checker] Qworum.checkAvailability: ${Qworum.checkAvailability}`);
 
 checkQworumAvailability();
 
 async function checkQworumAvailability() {
   try {
+    console.log(`checking `);
     await Qworum.checkAvailability();
     console.log(`The Qworum browser extension is running !`);
 
@@ -33,7 +37,7 @@ async function checkQworumAvailability() {
     await Qworum.eval(
       Script(
         // Call the `home` end-point
-        Call('@', '/home/')
+        Call('@', `/v${siteVersion}/home/`)
 
         // Fault('* test fault')
         // Return(Json('test value'))
