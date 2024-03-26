@@ -9,6 +9,8 @@ This template is:
 - _Multi-language_, with language-independent API endpoint paths.
 - _Versioned_. Indeed, Qworum applications are structured as Qworum APIs, and versioned APIs ensure that other applications that depend on this one will not break after an update.
 
+This project has a [companion project](https://github.com/doga/qworum-application-template-with-semantic-data) that uses semantic data instead of JSON.
+
 ## The "Hello World" Qworum application
 
 This website implements a Qworum API that has 2 endpoints:
