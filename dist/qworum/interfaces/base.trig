@@ -4,7 +4,6 @@ BASE <https://basic.template.qworum.net/qworum/base.trig>
 
 # metadata
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
-PREFIX schema:  <https://schema.org/>
 PREFIX cc:      <http://creativecommons.org/ns#> 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
