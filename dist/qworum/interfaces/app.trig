@@ -1,4 +1,4 @@
-BASE <https://basic.template.qworum.net/qworum/app.trig>
+BASE <https://basic.template.qworum.net/qworum/interfaces/app.trig>
 
 # metadata
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
@@ -6,7 +6,7 @@ PREFIX cc:      <http://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 # interface
-PREFIX :    <https://ontology.qworum.net/#>
+PREFIX : <http://ontology.qworum.net/i#>
 PREFIX interface: <#> 
 
 :metadata {
@@ -29,12 +29,12 @@ interface:v1
     :parameter [
       :comment 'The ID of the item to display.'@en;
       :name 'item id';
-      :schema '/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
+      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
     ];
 
     :returns [
       :comment 'Returns the call parameter.'@en;
-      :schema '/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
+      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
     ]
   ].
 
