@@ -19,7 +19,7 @@ PREFIX interface: <#>
 
 interface:v1
   a :Interface;
-  :extends <base.trig#v1>;
+  :extends <https://qworum.net/qworum/interfaces/base.trig#v1>;
   :comment 'The interface of this Qworum application.'@en;
 
   :method [
