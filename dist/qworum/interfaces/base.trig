@@ -9,20 +9,15 @@ PREFIX cc:      <http://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 # interface
-PREFIX :    <https://ontology.qworum.net/api#>
+PREFIX :    <https://ontology.qworum.net/#>
 PREFIX interface: <#> 
 
 :metadata {
-  <interface.trig>
+  <base.trig>
     a foaf:Document;
-    dcterms:description 'Interface for this application.'@en;
+    dcterms:description 'A Qworum interface description.'@en;
     foaf:maker <https://qworum.net/data/DoğaArmangil.ttl#id>;
-    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>;
-
-    a schema:CreativeWork;
-    schema:encodingFormat
-      'application/trig',
-      <https://www.iana.org/assignments/media-types/application/trig>.
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>.
 }
 
 interface:v1

@@ -1,5 +1,3 @@
-# Experimental. Not used in production.
-
 BASE <https://basic.template.qworum.net/qworum.trig>
 
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
@@ -15,12 +13,7 @@ PREFIX class: <#>
     a foaf:Document;
     dcterms:description 'Qworum API description.'@en;
     foaf:maker <https://qworum.net/data/DoğaArmangil.ttl#id>;
-    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>;
-
-    a schema:CreativeWork;
-    schema:encodingFormat
-      'application/trig',
-      <https://www.iana.org/assignments/media-types/application/trig>.
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>.
 }
 
 class:v1

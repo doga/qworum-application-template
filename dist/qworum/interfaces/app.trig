@@ -7,47 +7,35 @@ PREFIX cc:      <http://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 # interface
-PREFIX :    <https://ontology.qworum.net/api#>
+PREFIX :    <https://ontology.qworum.net/#>
 PREFIX interface: <#> 
 
 :metadata {
   <app.trig>
     a foaf:Document;
-    dcterms:description 'Interface for an online shop application.'@en;
+    dcterms:description 'A Qworum interface description.'@en;
     foaf:maker <https://qworum.net/data/DoğaArmangil.ttl#id>;
-    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>;
-
-    a schema:CreativeWork;
-    schema:encodingFormat
-      'application/trig',
-      <https://www.iana.org/assignments/media-types/application/trig>.
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>.
 }
 
 interface:v1
   a :Interface;
-  :extends [
-    a :ExtensionList;
-    rdf:_1 <base.trig#v1>
-  ];
+  :extends <base.trig#v1>;
   :comment 'The interface of this Qworum application.'@en;
 
   :method [
-    a :Method;
     :comment 'Endpoint for viewing an item.'@en;
     :path 'view-item/'^^:methodPath;
 
     :parameter [
-      a :JsonParameter;
       :comment 'The ID of the item to display.'@en;
       :name 'item id';
-      :schema </qworum/data-validation/schemas/non-negative-integer.schema.json>
+      :schema '/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
     ];
 
     :returns [
-      a :JsonReturnValue;
       :comment 'Returns the call parameter.'@en;
-      :schema </qworum/data-validation/schemas/non-negative-integer.schema.json>
+      :schema '/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
     ]
-
   ].
 
