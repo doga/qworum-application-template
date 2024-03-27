@@ -4,8 +4,8 @@ PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
 PREFIX cc:      <http://creativecommons.org/ns#> 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-PREFIX :    <https://ontology.qworum.net/#>
-PREFIX class: <#> 
+PREFIX qrmc: <http://ontology.qworum.net/c#>
+PREFIX : <#> 
 
 :metadata {
   <qworum.trig>
@@ -15,8 +15,9 @@ PREFIX class: <#>
     cc:license <https://creativecommons.org/publicdomain/zero/1.0/>.
 }
 
-class:v1
-  a :Class;
-  :instanceOf <qworum/interfaces/app.trig#v1>;
-  :comment 'The Qworum application at https://basic.template.qworum.net.'@en;
-  :base '/v1/'^^:basePath.
+:v1
+  a qrmc:Class;
+  qrmc:implements <qworum/interfaces/app.trig#v1>;
+  qrmc:comment 'The Qworum application at https://basic.template.qworum.net.'@en;
+  qrmc:base '/v1/'^^qrmc:basePath.
+
