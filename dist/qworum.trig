@@ -1,0 +1,30 @@
+# Experimental. Not used in production.
+
+BASE <https://basic.template.qworum.net/qworum.trig>
+
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
+PREFIX schema:  <https://schema.org/>
+PREFIX cc:      <http://creativecommons.org/ns#> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+PREFIX :    <https://ontology.qworum.net/api#>
+PREFIX class: <#> 
+
+:metadata {
+  <qworum.trig>
+    a foaf:Document;
+    dcterms:description 'Qworum API description.'@en;
+    foaf:maker <https://qworum.net/data/DoğaArmangil.ttl#id>;
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/>;
+
+    a schema:CreativeWork;
+    schema:encodingFormat
+      'application/trig',
+      <https://www.iana.org/assignments/media-types/application/trig>.
+}
+
+class:v1
+  a :Class;
+  :instanceOf <qworum/interfaces/app.trig#v1>;
+  :comment 'The Qworum application at https://basic.template.qworum.net.'@en;
+  :base '/v1/'^^:basePath.
