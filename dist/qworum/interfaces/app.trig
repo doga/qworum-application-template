@@ -7,6 +7,7 @@ BASE <https://basic.template.qworum.net/qworum/interfaces/app.trig>
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
 PREFIX cc:      <http://creativecommons.org/ns#> 
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX qrmm:    <http://ontology.qworum.net/m/>
 
 # interface
 PREFIX : <http://ontology.qworum.net/i/>
@@ -41,3 +42,5 @@ interface:v1
     ]
   ].
 
+# End of file
+[a qrmm:Meta] :end [].

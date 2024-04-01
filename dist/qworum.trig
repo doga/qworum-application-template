@@ -8,6 +8,7 @@ PREFIX cc:      <http://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 PREFIX qrmc: <http://ontology.qworum.net/c/>
+PREFIX qrmm: <http://ontology.qworum.net/m/>
 PREFIX : <#> 
 
 :metadata {
@@ -24,3 +25,5 @@ PREFIX : <#>
   qrmc:comment 'The Qworum application at https://basic.template.qworum.net.'@en;
   qrmc:base '/v1/'^^qrmc:basePath.
 
+# End of file
+[a qrmm:Meta] :end [].
