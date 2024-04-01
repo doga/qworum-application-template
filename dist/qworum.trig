@@ -26,4 +26,4 @@ PREFIX : <#>
   qrmc:base '/v1/'^^qrmc:basePath.
 
 # End of file
-[a qrmm:Meta] :end [].
+[] qrmm:end [].

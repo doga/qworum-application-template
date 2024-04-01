@@ -43,4 +43,4 @@ interface:v1
   ].
 
 # End of file
-[a qrmm:Meta] :end [].
+[] qrmm:end [].
