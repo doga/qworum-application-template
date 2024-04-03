@@ -7,7 +7,7 @@ BASE <https://basic.template.qworum.net/qworum/interfaces/app.trig>
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/> 
 PREFIX cc:      <http://creativecommons.org/ns#> 
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX qrmm:    <http://ontology.qworum.net/m/>
+PREFIX qrmv:    <http://ontology.qworum.net/v/>
 
 # interface
 PREFIX : <http://ontology.qworum.net/i/>
@@ -33,14 +33,14 @@ interface:v1
     :parameter [
       :comment 'The ID of the item to display.'@en;
       :name 'item id';
-      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
+      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^qrmv:anyIRI
     ];
 
     :returns [
       :comment 'Returns the call parameter.'@en;
-      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^:anyIRI
+      :schema 'https://qworum.net/qworum/data-validation/schemas/non-negative-integer.schema.json'^^qrmv:anyIRI
     ]
   ].
 
 # End of file
-[] qrmm:end [].
+[] qrmv:end [].
