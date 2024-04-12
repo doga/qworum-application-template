@@ -29,6 +29,12 @@ Note that the API endpoint names mustn't be:
 - 2 letters long,
 - equal to `assets`.
 
+## Voucher
+
+[![Qworum promo code](https://github.com/doga/doga/raw/main/qworum-promo-code-QRMSYY4IJCyNZ.png)](https://qworum.net/en/plans/)
+
+_Promo code: QRMSYY4IJCyNZ_
+
 ## License
 
 This software is released under the terms of the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
