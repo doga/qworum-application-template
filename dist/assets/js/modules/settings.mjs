@@ -3,8 +3,7 @@ class Settings {
     try {
       const
       response = await fetch('/settings.json'),
-      text     = await response.text(),
-      settings = JSON.parse(text);
+      settings = await response.json();
 
       return settings;
     } catch (error) {
