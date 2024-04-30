@@ -1,20 +1,20 @@
 import { items } from "./modules/items.mjs"; // Articles on sale
-import { Qworum } from './imports.mjs'; // The Qworum library.
+import { QworumScript, Qworum } from './deps.mjs';
 
 const
-// Qworum Data value types
-Json         = Qworum.Json,
-SemanticData = Qworum.SemanticData,
-// Qworum instructions
-Data     = Qworum.Data,
-Return   = Qworum.Return,
-Sequence = Qworum.Sequence,
-Goto     = Qworum.Goto,
-Call     = Qworum.Call,
-Fault    = Qworum.Fault,
-Try      = Qworum.Try,
-// Qworum script
-Script = Qworum.Script;
+// Data values
+Json         = QworumScript.Json.build,
+SemanticData = QworumScript.SemanticData.build,
+// Instructions
+Data     = QworumScript.Data.build,
+Return   = QworumScript.Return.build,
+Sequence = QworumScript.Sequence.build,
+Goto     = QworumScript.Goto.build,
+Call     = QworumScript.Call.build,
+Fault    = QworumScript.Fault.build,
+Try      = QworumScript.Try.build,
+// Script
+Script = QworumScript.Script.build;
 
 await showItem();
 

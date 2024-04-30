@@ -9,7 +9,7 @@ This template is:
 - _Multi-language_, with language-independent API endpoint paths.
 - _Versioned_. Indeed, Qworum applications are structured as Qworum APIs, and versioned APIs ensure that other applications that depend on this one will not break after an update.
 
-This project has a [companion project](https://github.com/doga/qworum-application-template-with-semantic-data) that uses semantic data instead of JSON.
+This project has a [companion project](https://github.com/doga/qworum-application-template-with-semantic-data) that uses semantic data (RDF) instead of JSON.
 
 ## The "Hello World" Qworum application
 
@@ -23,17 +23,6 @@ Here is the directory structure:
 - Directories with 2-letter names such as `en` contain language-specific versions of the API endpoints.
 - `assets` contains resources used by the web pages.
 - All other directories (`home`, `view-item`) are the official endpoint paths; they are only used for redirecting API calls to language-specific endpoint versions.
-
-Note that the API endpoint names mustn't be:
-
-- 2 letters long,
-- equal to `assets`.
-
-## Voucher
-
-[![Qworum promo code](https://github.com/doga/doga/raw/main/qworum-promo-code-QRMSYY4IJCyNZ.png)](https://qworum.net/en/plans/)
-
-_Promo code: QRMSYY4IJCyNZ_
 
 ## License
 
