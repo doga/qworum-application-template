@@ -38,8 +38,16 @@ function showItems() {
       await Qworum.eval(
         Script(
           Sequence(
+            // Try(
+            //   Call(
+            //     '@', '../view-item/', 
+            //     { name: 'item id', value: Json(itemId) }
+            //   ),
+            //   [{catch: [], do: Goto()}]
+            // ),
+            // Goto(),
             Call('@', '../view-item/', { name: 'item id', value: Json(itemId) }),
-            Goto()
+            Goto(),
           )
         )
       );

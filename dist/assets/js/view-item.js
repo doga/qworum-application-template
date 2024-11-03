@@ -51,6 +51,7 @@ async function showItem() {
     // event.preventDefault();
     Qworum.eval(
       Script(
+        // Fault('* origin')
         Return(Json(itemId))
       )
     );

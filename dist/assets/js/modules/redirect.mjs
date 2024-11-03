@@ -9,7 +9,7 @@ class Redirect {
     settings = await Settings.read(),
     lang     = Redirect.findLocalisationForUser(settings.languages);
     
-    if (pageUrl.pathname === '/') {
+    if (['/', '/index.html'].includes(pageUrl.pathname)) {
       window.location.replace(`/check-qworum-availability-${lang}.html`);
 
     // } else if(pageUrl.pathname.startsWith('/check-qworum-availability')) {

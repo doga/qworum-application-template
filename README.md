@@ -24,6 +24,13 @@ Here is the directory structure:
 - `assets` contains resources used by the web pages.
 - All other directories (`home`, `view-item`) are the official endpoint paths; they are only used for redirecting API calls to language-specific endpoint versions.
 
+## To do
+
+Implement a login endpoint:
+
+- [Launching a New Tab for OpenID Connect Login](https://g.co/gemini/share/e260edfb5045)
+- [Common Login Protocols for Business Applications](https://g.co/gemini/share/2e761f775cd6)
+
 ## License
 
 This software is released under the terms of the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
