@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/style/main.css" rel="stylesheet">
+  <title>View document</title>
+	<link rel="manifest" href="/app.webmanifest">
+</head>
+<body>
+  <nav>
+    <button id='close' class='close' type="button"></button>
+  </nav>
+
+  <section id="doc">
+    <h1 id="doc-title" class="doc-title">Document</h1>
+    <p id="doc-text" class="doc-text"></p>
+    <section>
+      <h2>About this document:</h2>
+      <dl id="doc-meta"></dl>
+    </section>
+    <button id="update" type="button">
+      Update document
+    </button>
+  </section>
+
+
+  <script type="module" src="/assets/js/view-doc.js"></script>
+
+</body>
+</html>

@@ -2,7 +2,6 @@
 // Used by check-qworum-availability-LANG.html.
 
 import { QworumScript, Qworum } from './deps.mjs';
-import { Settings } from './modules/settings.mjs';
 
 const
 // Data values
@@ -18,19 +17,23 @@ Fault    = QworumScript.Fault.build,
 Try      = QworumScript.Try.build,
 // Script
 Script = QworumScript.Script.build;
+console.debug(`[pm app]Script`,Script);
+
 
 checkQworumAvailability();
 
 async function checkQworumAvailability() {
   try {
-    const settings = await Settings.read();
+    const 
+    searchParams = new URLSearchParams(document.location.search),
+    pathToCall = searchParams.get('call');
 
     await Qworum.checkAvailability();
     console.info(`The Qworum browser extension is running !`);
 
     await Qworum.eval(
       Script(
-        Call('@', `/v${settings.version}/home/`)
+        Call('@', pathToCall)
       )
     );
   } catch (error) {

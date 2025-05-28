@@ -1,5 +1,5 @@
 body {
-  font-size: 200%;
+  font-size: 130%;
   padding: 3em;
 }
 button {
@@ -9,6 +9,28 @@ button {
   border-radius: 0.5em;
   cursor: pointer;
 }
+
+/* Style buttons to look like hyperlinks */
+button.nav {
+  background: none;
+  border: none;
+  color: blue; /* Typical hyperlink color */
+  text-decoration: underline; /* Underline like a hyperlink */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  padding: 0; /* Remove default padding */
+  font: inherit; /* Inherit font from parent */
+  text-align: left; /* Align text to the left like hyperlinks */
+  display: inline; /* Make the button inline like a hyperlink */
+  margin: 0; /* Remove default margins */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Optional: Change color on hover to mimic hyperlink behavior */
+button.nav:hover {
+  color: darkblue; /* Darker shade on hover */
+  text-decoration: underline; /* Ensure underline remains on hover */
+}
+
 
 button.close {
   float: right;
@@ -27,6 +49,39 @@ li {
   margin: 0.5em 0;
 }
 
+dt {
+  font-variant: small-caps;
+  text-transform: capitalize;
+}
+
 .item-title  {
   text-transform: capitalize;
+}
+
+ol#docs-list>li, 
+ol#docs-list>li>button {
+  text-transform: capitalize;
+}
+
+section#doc {
+  h1 {
+    font-size:200%;
+    text-transform: capitalize;
+  }
+  section {
+    h2 {
+      font-size: 100%;
+    }
+    dl {
+      font-size: .8em;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

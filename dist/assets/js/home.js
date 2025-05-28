@@ -1,5 +1,8 @@
-import { items } from "./modules/items.mjs"; // Articles on sale
-import { QworumScript, Qworum } from './deps.mjs';
+import { 
+  platformRoleset,
+  Persona,
+  QworumScript, Qworum, 
+} from './deps.mjs';
 
 const
 // Data values
@@ -14,39 +17,90 @@ Call     = QworumScript.Call.build,
 Fault    = QworumScript.Fault.build,
 Try      = QworumScript.Try.build,
 // Script
-Script = QworumScript.Script.build;
+Script = QworumScript.Script.build,
 
-showItems();
+// 
+// persona = await Qworum.getPersona(),
 
-function showItems() {
-  // console.debug(`[home] showing ${items.length} items`);
-  const contentArea = document.getElementById('items');
+// UI
+ui = {
+  nodocsMessage: document.querySelector('p#nodocs-message'),
+  docsList     : document.querySelector('ol#docs-list'),
+  newDocButton : document.querySelector('button#create-doc'),
+};
 
-  for (let itemId = 0; itemId < items.length; itemId++) {
-    // console.debug(`[home] showing item ${itemId}`);
+// if (!persona.userFitsAnyOf([platformRoleset.findRole(/creator/)])) ui.newDocButton.classList.add('hide');
+
+ui.newDocButton.addEventListener('click', async () => {
+  // if (persona.userFitsAnyOf([platformRoleset.findRole(/creator/)]))
+  await Qworum.eval(
+    Script(
+      Sequence(
+        Call('@', '../create-doc/'),
+        Goto(),
+      )
+    )
+  );
+});
+
+// if(persona)
+showDocumentTitles();
+
+function showDocumentTitles() {
+  // localStorage.clear();
+
+  if(!localStorage.getItem('database'))
+  localStorage.setItem('database', JSON.stringify({
+    documents: [
+      {
+        title: 'a doc',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        ownerGroup: {
+          id  : 'urn:qworum:group:9cc04a05-5a0d-4534-bacd-e4fc84970ef8',
+          name: 'Q Inc., project X-1234 working group'
+        },
+        events: [
+          {
+            eventType: 'created',
+            user: {
+              id  : 'urn:qworum:user:9cc04a05-5a0d-4534-bacd-e4fc84970ef8',
+              name: 'J. Adams',
+            },
+            timestamp: '2025-05-28T08:45:04.877Z',
+          }
+        ]
+      }
+    ]
+  }));
+
+  const docs = JSON.parse(localStorage.getItem('database')).documents;
+  if(docs.length>0) ui.nodocsMessage.style = 'display:none';
+
+  for (let docId = 0; docId < docs.length; docId++) {
+    const doc = docs[docId];
+
+    // only show what the user is entitled to view
+    // if (![`${persona.groupId}`, ...persona.partnerGroupIds.map(id => `${id}`)].find(
+    //   idStr => idStr === doc.ownerGroup.id
+    // )) continue;
+
     const
-    item   = items[itemId],
     li     = document.createElement('li'),
     button = document.createElement('button');
 
-    button.className = 'item-title';
-    button.innerText = item.title;
-    li.appendChild(button);
-    contentArea.appendChild(li);
+    button.setAttribute('type', 'button');
+    button.className = 'doc-title nav';
+    button.innerText = doc.title;
+    li.append(button, doc.ownerGroup.name ? ` (Owner: ${doc.ownerGroup.name})` : ` (Owner: <${doc.ownerGroup.id}>)`);
+    ui.docsList.append(li);
+
+    // if (!persona.userFitsAnyOf([platformRoleset.findRole(/reader/)]))continue;
 
     button.addEventListener('click', async () => {
       await Qworum.eval(
         Script(
           Sequence(
-            // Try(
-            //   Call(
-            //     '@', '../view-item/', 
-            //     { name: 'item id', value: Json(itemId) }
-            //   ),
-            //   [{catch: [], do: Goto()}]
-            // ),
-            // Goto(),
-            Call('@', '../view-item/', { name: 'item id', value: Json(itemId) }),
+            Call('@', '../view-doc/', { name: 'doc id', value: Json(docId) }),
             Goto(),
           )
         )
