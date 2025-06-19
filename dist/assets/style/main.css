@@ -58,7 +58,7 @@ dt {
   text-transform: capitalize;
 }
 
-ol#docs-list>li, 
+/* ol#docs-list>li,  */
 ol#docs-list>li>button {
   text-transform: capitalize;
 }

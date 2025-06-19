@@ -1,5 +1,5 @@
 import { 
-  platformRoleset,
+  defaultRoleset,
   Persona,
   QworumScript, Qworum, 
 } from './deps.mjs';
@@ -29,10 +29,11 @@ ui = {
   newDocButton : document.querySelector('button#create-doc'),
 };
 
-// if (!persona.userFitsAnyOf([platformRoleset.findRole(/creator/)])) ui.newDocButton.classList.add('hide');
+// hide the "create" button from non-creators
+// if (!persona.userFitsAnyOf([defaultRoleset.findRole(/creator/)])) ui.newDocButton.classList.add('hide');
 
 ui.newDocButton.addEventListener('click', async () => {
-  // if (persona.userFitsAnyOf([platformRoleset.findRole(/creator/)]))
+  // if (persona.userFitsAnyOf([defaultRoleset.findRole(/creator/)]))
   await Qworum.eval(
     Script(
       Sequence(
@@ -94,7 +95,7 @@ function showDocumentTitles() {
     li.append(button, doc.ownerGroup.name ? ` (Owner: ${doc.ownerGroup.name})` : ` (Owner: <${doc.ownerGroup.id}>)`);
     ui.docsList.append(li);
 
-    // if (!persona.userFitsAnyOf([platformRoleset.findRole(/reader/)]))continue;
+    // if (!persona.userFitsAnyOf([defaultRoleset.findRole(/reader/)]))continue;
 
     button.addEventListener('click', async () => {
       await Qworum.eval(

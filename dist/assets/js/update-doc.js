@@ -51,7 +51,7 @@ ui.saveButton.addEventListener('click', async () => {
   }
 
   const 
-  // persona = await Qworum.getPersona(),
+  persona = await Qworum.getPersona(),
   database = JSON.parse(localStorage.getItem('database')),
   doc = database.documents[docId];
 
@@ -60,8 +60,8 @@ ui.saveButton.addEventListener('click', async () => {
   doc.events.push({
     eventType: 'updated',
     user: {
-      id: `${UserId.uuid()}`,
-      // id: `${persona.userId}`,
+      id: `${persona.userId}`,
+      // id: `${UserId.uuid()}`,
     },
     timestamp: new Date().toISOString()
   });

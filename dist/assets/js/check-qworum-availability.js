@@ -17,7 +17,7 @@ Fault    = QworumScript.Fault.build,
 Try      = QworumScript.Try.build,
 // Script
 Script = QworumScript.Script.build;
-console.debug(`[pm app]Script`,Script);
+// console.debug(`[pm app]Script`,Script);
 
 
 checkQworumAvailability();
@@ -28,8 +28,9 @@ async function checkQworumAvailability() {
     searchParams = new URLSearchParams(document.location.search),
     pathToCall = searchParams.get('call');
 
+    // console.info(`checking Qworum availability …`);
     await Qworum.checkAvailability();
-    console.info(`The Qworum browser extension is running !`);
+    // console.info(`The Qworum browser extension is running !`);
 
     await Qworum.eval(
       Script(

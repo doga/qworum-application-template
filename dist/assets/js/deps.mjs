@@ -4,7 +4,7 @@
 export { 
   UserId, GroupId, Persona,
   QworumScript, Qworum , 
-  platformRoleset,
+  defaultRoleset,
 } from "http://127.0.0.1:5504/mod.mjs";
 // export { QworumScript, Qworum } from "https://esm.sh/gh/doga/qworum-for-web-pages@1.8.2/mod.mjs";
 
