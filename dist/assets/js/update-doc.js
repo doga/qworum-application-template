@@ -62,6 +62,8 @@ ui.saveButton.addEventListener('click', async () => {
     user: {
       id: `${persona.userId}`,
       // id: `${UserId.uuid()}`,
+      name: persona.userVcard.formattedName,
+      photo: persona.userVcard.photo?.dataUrl, // A `data:` URL
     },
     timestamp: new Date().toISOString()
   });

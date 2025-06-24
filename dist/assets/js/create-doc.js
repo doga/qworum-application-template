@@ -54,12 +54,16 @@ ui.saveButton.addEventListener('click', async () => {
     ownerGroup: {
       id: `${persona.groupId}`,
       // id: `${GroupId.uuid()}`,
+      name: persona.groupVcard.formattedName,
+      photo: persona.groupVcard.photo?.dataUrl, // A `data:` URL
     },
     events: [{
       eventType: 'created',
       user: {
         id: `${persona.userId}`,
         // id: `${UserId.uuid()}`,
+        name: persona.userVcard.formattedName,
+        photo: persona.userVcard.photo?.dataUrl, // A `data:` URL
       },
       timestamp: new Date().toISOString()
     }]

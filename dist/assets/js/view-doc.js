@@ -50,29 +50,44 @@ async function showDoc() {
 
   // metadata
   const
-  owner = {
-    title: document.createElement('dt'),
-    value: document.createElement('dd'),
+  ownerGroup = doc.ownerGroup,
+  ownerUi = {
+    title             : document.createElement('dt'),
+    value             : document.createElement('dd'),
+    groupFormattedName: document.createElement('span'),
+    groupId           : document.createElement('span'),
   };
-  owner.title.innerText = "Owner group";
-  owner.value.innerText = (
-    doc.ownerGroup.name ?
-    `${doc.ownerGroup.name} <${doc.ownerGroup.id}>` :
-    `<${doc.ownerGroup.id}>`
-  );
-  ui.meta.append(owner.title, owner.value);
+  ownerUi.title.innerText = "Owner group";
+  ownerUi.groupFormattedName.classList.add('groupname');
+  ownerUi.groupFormattedName.append(`${ownerGroup.name}`);
+  ownerUi.groupId.classList.add('group-id');
+  ownerUi.groupId.append(`${ownerGroup.id}`);
+  ownerUi.value.append(ownerUi.groupFormattedName, ' ', ownerUi.groupId);
+  ui.meta.append(ownerUi.title, ownerUi.value);
 
   for (const event of doc.events) {
     const
+    user  = event.user,
     title = document.createElement('dt'),
-    value = document.createElement('dd');
+    value = document.createElement('dd'),
+    userFormattedName = document.createElement('span'),
+    userId = document.createElement('span');
 
-    title.innerText = event.eventType;
-    value.innerText = (
-      event.user.name ?
-      `at <${event.timestamp}> by ${event.user.name} <${event.user.id}>` :
-      `at <${event.timestamp}> by <${event.user.id}>`
-    );
+    title.innerText = `${event.eventType} at ${event.timestamp}`;
+    userFormattedName.classList.add('username');
+    userFormattedName.append(`${user.name}`);
+    userId.classList.add('user-id');
+    userId.append(`${user.id}`);
+    value.append(userFormattedName, ' ', userId);
+
+    // if (user.photo) {
+    //   const 
+    //   br  = document.createElement('br'),
+    //   img = document.createElement('img');
+
+    //   img.src = `${user.photo}`;
+    //   value.append(img);
+    // }
 
     ui.meta.append(title, value);
   }
