@@ -12,7 +12,7 @@
 
 <body>
 	<script type="module">
-		import Langs from '/assets/js/languages.mjs';
+		import Langs from '/assets/js/modules/languages.mjs';
 		const userLang = (await Langs.read('../languages.json')).getUserLang();
 
 		window.location.replace(

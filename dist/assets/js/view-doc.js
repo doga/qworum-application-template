@@ -1,4 +1,5 @@
 import { QworumScript, Qworum } from './deps.mjs';
+import db from './modules/db.mjs';
 
 const
 // Data values
@@ -41,7 +42,7 @@ async function showDoc() {
   // call argument
   docIdArg = await Qworum.getData('doc id'),
   docId    = docIdArg.value, // int
-  docs     = JSON.parse(localStorage.getItem('database')).documents,
+  docs     = JSON.parse(db.getItem('database')).documents,
   doc      = docs[docId];
   // console.debug(`doc id: ${docId} `);
 
@@ -57,7 +58,7 @@ async function showDoc() {
     groupFormattedName: document.createElement('span'),
     groupId           : document.createElement('span'),
   };
-  ownerUi.title.innerText = "Owner group";
+  ownerUi.title.innerText = "Owner group:";
   ownerUi.groupFormattedName.classList.add('groupname');
   ownerUi.groupFormattedName.append(`${ownerGroup.name}`);
   ownerUi.groupId.classList.add('group-id');
@@ -73,7 +74,7 @@ async function showDoc() {
     userFormattedName = document.createElement('span'),
     userId = document.createElement('span');
 
-    title.innerText = `${event.eventType} at ${event.timestamp}`;
+    title.innerText = `${event.eventType} at ${event.timestamp} by:`;
     userFormattedName.classList.add('username');
     userFormattedName.append(`${user.name}`);
     userId.classList.add('user-id');

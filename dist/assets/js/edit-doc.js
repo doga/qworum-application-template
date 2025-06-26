@@ -1,4 +1,5 @@
 import { QworumScript, Qworum } from './deps.mjs';
+import db from './modules/db.mjs';
 
 const
 // Data values
@@ -31,7 +32,7 @@ async function showDoc() {
   // call argument
   docIdArg = await Qworum.getData('doc id'),
   docId    = docIdArg.value, // int
-  docs     = JSON.parse(localStorage.getItem('database')).documents,
+  docs     = JSON.parse(db.getItem('database')).documents,
   doc      = docs[docId];
   // console.debug(`doc id: ${docId} `);
 

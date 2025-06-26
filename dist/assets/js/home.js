@@ -3,6 +3,7 @@ import {
   Persona,
   QworumScript, Qworum, 
 } from './deps.mjs';
+import db from './modules/db.mjs';
 
 const
 // Data values
@@ -47,35 +48,11 @@ ui.newDocButton.addEventListener('click', async () => {
 await showDocumentTitles();
 
 async function showDocumentTitles() {
-  // localStorage.clear();
-  const persona = await Qworum.getPersona();
+  // db.clear();
+  const 
+  persona = await Qworum.getPersona(),
+  docs    = JSON.parse(db.getItem('database')).documents;
 
-  if(!localStorage.getItem('database')){
-    localStorage.setItem('database', JSON.stringify({
-      documents: [
-        {
-          title: 'a doc',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          ownerGroup: {
-            id  : 'urn:qworum:group:9cc04a05-5a0d-4534-bacd-e4fc84970ef8',
-            name: 'Q Inc., project X-1234 working group'
-          },
-          events: [
-            {
-              eventType: 'created',
-              user: {
-                id  : 'urn:qworum:user:9cc04a05-5a0d-4534-bacd-e4fc84970ef8',
-                name: 'J. Adams',
-              },
-              timestamp: '2025-05-28T08:45:04.877Z',
-            }
-          ]
-        }
-      ]
-    }));
-  }
-
-  const docs = JSON.parse(localStorage.getItem('database')).documents;
   if(docs.length>0) ui.nodocsMessage.style = 'display:none';
 
   for (let docId = 0; docId < docs.length; docId++) {

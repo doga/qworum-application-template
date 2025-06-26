@@ -1,4 +1,4 @@
-import { Language } from "./deps.mjs";
+import { Language } from "../deps.mjs";
 
 /**
  * The set of languages that are available for a given Qworum API version.

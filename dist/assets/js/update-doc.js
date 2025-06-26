@@ -3,6 +3,9 @@ import {
   QworumScript, Qworum,
 } from './deps.mjs';
 
+import db from './modules/db.mjs';
+
+
 const
 // Data values
 Json         = QworumScript.Json.build,
@@ -52,7 +55,7 @@ ui.saveButton.addEventListener('click', async () => {
 
   const 
   persona = await Qworum.getPersona(),
-  database = JSON.parse(localStorage.getItem('database')),
+  database = JSON.parse(db.getItem('database')),
   doc = database.documents[docId];
 
   doc.title = title;
@@ -70,7 +73,7 @@ ui.saveButton.addEventListener('click', async () => {
 
   // console.debug(database);
 
-  localStorage.setItem('database', JSON.stringify(database));
+  db.setItem('database', JSON.stringify(database));
 
   await Qworum.eval(
     Script(
@@ -84,7 +87,7 @@ init();
 
 function init(){
   const
-  docs     = JSON.parse(localStorage.getItem('database')).documents,
+  docs     = JSON.parse(db.getItem('database')).documents,
   doc      = docs[docId];
 
   ui.title.value = doc.title;
