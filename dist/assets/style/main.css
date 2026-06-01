@@ -65,12 +65,12 @@ dd>img {
   text-transform: capitalize;
 }
 
-/* ol#docs-list>li,  */
-ol#docs-list>li>button {
+/* ol#items-list>li,  */
+ol#items-list>li>button {
   text-transform: capitalize;
 }
 
-section#doc {
+section#item {
   h1 {
     font-size:200%;
     text-transform: capitalize;
@@ -85,22 +85,6 @@ section#doc {
   }
 }
 
-span.username,
-span.groupname {
-  font-weight: bold;
-  /* text-decoration:dashed underline red; */
-}
-
-span.user-id,
-span.group-id {
-  font-family: monospace;
-  &::before {
-    content: '<';
-  }
-  &::after {
-    content: '>';
-  }
-}
 
 .hide {
   display: none;

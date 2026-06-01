@@ -1,22 +1,22 @@
 // Checks whether the Qworum extension is running on the end-user's browser.
 // Used by check-qworum-availability-LANG.html.
 
-import { QworumScript, Qworum } from './deps.mjs';
+import { QworumScript as QS, Qworum } from './deps.mjs';
 
 const
 // Data values
-Json         = QworumScript.Json.build,
-SemanticData = QworumScript.SemanticData.build,
+Json         = QS.Json.build,
+SemanticData = QS.SemanticData.build,
 // Instructions
-Data     = QworumScript.Data.build,
-Return   = QworumScript.Return.build,
-Sequence = QworumScript.Sequence.build,
-Goto     = QworumScript.Goto.build,
-Call     = QworumScript.Call.build,
-Fault    = QworumScript.Fault.build,
-Try      = QworumScript.Try.build,
+Data     = QS.Data.build,
+Return   = QS.Return.build,
+Sequence = QS.Sequence.build,
+Goto     = QS.Goto.build,
+Call     = QS.Call.build,
+Fault    = QS.Fault.build,
+Try      = QS.Try.build,
 // Script
-Script = QworumScript.Script.build;
+Script = QS.Script.build;
 // console.debug(`[pm app]Script`,Script);
 
 

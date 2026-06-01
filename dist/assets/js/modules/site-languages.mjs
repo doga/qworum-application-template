@@ -1,9 +1,9 @@
-import { Language } from "../deps.mjs";
+import { Language, lang } from "../deps.mjs";
 
 /**
  * The set of languages that are available for a given Qworum API version.
  */
-class Languages {
+class SiteLanguages {
   /** @type {Language[]} */
   languages;
 
@@ -16,16 +16,16 @@ class Languages {
 
   /**
    * @param {(string | undefined)} pathOfLanguagesFile
-   * @returns {Languages}
+   * @returns {SiteLanguages}
    */
   static async read(pathOfLanguagesFile){
     const path = pathOfLanguagesFile ?? 'languages.json';
-    let langs = [Language.fromCode('en')];
+    let siteLangs = [lang`en`];
     try {
       const response = await fetch(path);
-      langs = (await response.json()).map(l => Language.fromCode(l));
+      siteLangs = (await response.json()).map(l => lang`${l}`);
     } catch (error) {}
-    return new Languages(langs);
+    return new SiteLanguages(siteLangs);
   }  
 
   /**
@@ -34,13 +34,13 @@ class Languages {
    */
   getUserLang(){
     try {
-      var lang = null;
+      var userLangCode = null;
       if (window.navigator.language) {
         const browserLang = window.navigator.language.split('-')[0];
         for (let j = 1; j < this.languages.length; j++) {
           const siteLang = this.languages[j].iso639_1;
           if (siteLang === browserLang) {
-            lang = siteLang;
+            userLangCode = siteLang;
             break;
           }
         }
@@ -50,18 +50,18 @@ class Languages {
           for (let j = 1; j < this.languages.length; j++) {
             const siteLang = this.languages[j].iso639_1;
             if (siteLang === browserLang) {
-              lang = siteLang;
+              userLangCode = siteLang;
               break;
             }
           }
-          if (lang) break;
+          if (userLangCode) break;
         }
       } else if (window.navigator.userLanguage) {
         const browserLang = window.navigator.userLanguage.split('-')[0];
         for (let j = 1; j < this.languages.length; j++) {
           const siteLang = this.languages[j].iso639_1;
           if (siteLang === browserLang) {
-            lang = siteLang;
+            userLangCode = siteLang;
             break;
           }
         }
@@ -70,7 +70,7 @@ class Languages {
         for (let j = 1; j < this.languages.length; j++) {
           const siteLang = this.languages[j].iso639_1;
           if (siteLang === browserLang) {
-            lang = siteLang;
+            userLangCode = siteLang;
             break;
           }
         }
@@ -79,20 +79,19 @@ class Languages {
         for (let j = 1; j < this.languages.length; j++) {
           const siteLang = this.languages[j].iso639_1;
           if (siteLang === browserLang) {
-            lang = siteLang;
+            userLangCode = siteLang;
             break;
           }
         }
       }
-      if (!lang) lang = this.languages[0].iso639_1;
+      if (!userLangCode) userLangCode = this.languages[0].iso639_1;
 
-      return Language.fromCode(lang);
+      return lang`${userLangCode}`;
     } catch (error) {
-      return Language.fromCode('en');
+      return lang`en`;
     }
   }
-
 }
 
-export default Languages;
-export { Languages };
+export default SiteLanguages;
+export { SiteLanguages };
