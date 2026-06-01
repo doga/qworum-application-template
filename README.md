@@ -18,6 +18,14 @@ This website implements a Qworum API that has 2 endpoints:
 - the `home` endpoint, which is an application, and
 - the `view-item` endpoint, called by `home`.
 
+```mermaid
+classDiagram
+    class Application {
+        +home()
+        +Json(null) viewItem(Json itemId)
+    }
+```
+
 Here is the directory structure:
 
 - Directories with 2-letter names such as `en` contain language-specific versions of the API endpoints.
