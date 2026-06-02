@@ -6,7 +6,7 @@
 export { 
   QworumScript, Qworum 
 // } from 'http://127.0.0.1:5504/mod.mjs';
-} from 'https://esm.sh/gh/doga/qworum-for-web-pages@1.8.2/mod.mjs';
+} from 'https://esm.sh/gh/doga/qworum-for-web-pages@1.8.3/mod.mjs';
 
 export {
   langTag, lang, LanguageTag, Language

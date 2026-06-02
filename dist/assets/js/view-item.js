@@ -35,8 +35,8 @@ async function showitem() {
   item      = items[itemId];
   // console.debug(`item id: ${itemId} `);
 
-  ui.title.innerText   = item.title;
-  ui.text.innerText = item.text;
+  ui.title.innerText = item.title;
+  ui.text.innerText  = item.text;
 
   ui.closeButton.addEventListener('click', async (event) => {
     // console.debug('close button clicked');
@@ -48,5 +48,5 @@ async function showitem() {
       )
     );
   });
-
 }
+
